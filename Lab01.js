@@ -1,5 +1,4 @@
 'use strict';
-
 //Объявить массив 25 строк(герои книг)
 let p =[
  'Гильгамеш',
@@ -40,10 +39,9 @@ filt.sort();
 let dictChar = {};
  for(let i =0;i<filt.length;i++)
    for(let j =0;j<filt[i].length;j++){
-     let s = filt[i][j];
-     if(!(dictChar[s] > 0))
-     dictChar[s]=1; else 
-       dictChar[s]++;
+     if(!(dictChar[filt[i][j]] > 0))
+     dictChar[filt[i][j]]=1; else 
+       dictChar[filt[i][j]]++;
    }
 /*
 for(let key in dictChar){
@@ -55,8 +53,7 @@ for(let key in dictChar){
 let dictDif = {};
 for(let i =0;i<filt.length;i++)
    for(let j =1;j<filt[i].length;j++){
-     let s = filt[i][j];
-     if('ауоыиэяюёе'.indexOf(s)!=-1 && 'ауоыиэяюёе'.indexOf(filt[i][j-1])!=-1) dictDif[filt[i][j-1]+s] = 1;
+     if('ауоыиэяюёе'.indexOf(filt[i][j])!=-1 && 'ауоыиэяюёе'.indexOf(filt[i][j-1])!=-1) dictDif[filt[i][j-1]+filt[i][j]] = 1;
    }
 /*
 for(let key in dictDif){
@@ -78,7 +75,7 @@ global.api.hash =function(p){
     for(let j=0;j<p[i].length;j++)
       if('ауоыиэяюёе'.indexOf(p[i][j])!=-1) a++;
       else b++; 
-  hash[a*b*p[i].length] = p[i];
+    hash[a*b*p[i].length] = p[i];
       }
   return hash;
 }
@@ -91,8 +88,7 @@ global.api.cipher =function(p){
   for(let i=0;i<p.length;i++){
     cipher[i] = '';
     for(let j=0;j<p[i].length;j++){
-      let s = p[i][j];
-      cipher[i]+= String.fromCharCode(s.charCodeAt(0)+3);
+      cipher[i]+= String.fromCharCode(p[i][j].charCodeAt(0)+3);
     } 
   }
   return cipher;
