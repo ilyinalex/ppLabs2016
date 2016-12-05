@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 //[1,2,3,4,52,50].filter(x => x>50)
 let p =[
 'Гильгамеш',
